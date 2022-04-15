@@ -26,6 +26,9 @@ class TestController
         $this->logger->info('My custom logged info.');
         $this->logger->error('My custom logged error.');
 
+        // the following code will test if an uncaught exception logs to sentry
+        throw new \RuntimeException('Example exception.');
+
         return new JsonResponse(['status' => 'ok']);
     }
 }
